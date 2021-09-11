@@ -13,11 +13,12 @@
 		CF91FBEE26E9E37500150D9F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF91FBED26E9E37500150D9F /* HomeViewController.swift */; };
 		CFAE5AE2262DAEAE00699832 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE5AE1262DAEAE00699832 /* AppDelegate.swift */; };
 		CFAE5AE4262DAEAE00699832 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE5AE3262DAEAE00699832 /* SceneDelegate.swift */; };
-		CFAE5AE6262DAEAE00699832 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE5AE5262DAEAE00699832 /* ViewController.swift */; };
+		CFAE5AE6262DAEAE00699832 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE5AE5262DAEAE00699832 /* RegisterViewController.swift */; };
 		CFAE5AE9262DAEAE00699832 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFAE5AE7262DAEAE00699832 /* Main.storyboard */; };
 		CFAE5AEB262DAEB200699832 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFAE5AEA262DAEB200699832 /* Assets.xcassets */; };
 		CFAE5AEE262DAEB200699832 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFAE5AEC262DAEB200699832 /* LaunchScreen.storyboard */; };
 		CFAE5AF7262F211D00699832 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE5AF6262F211D00699832 /* UIColor-Extension.swift */; };
+		CFE048E426EC722600627FE2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE048E326EC722600627FE2 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +29,13 @@
 		CFAE5ADE262DAEAE00699832 /* LoginTestFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginTestFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFAE5AE1262DAEAE00699832 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFAE5AE3262DAEAE00699832 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CFAE5AE5262DAEAE00699832 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CFAE5AE5262DAEAE00699832 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		CFAE5AE8262DAEAE00699832 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CFAE5AEA262DAEB200699832 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFAE5AED262DAEB200699832 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFAE5AEF262DAEB200699832 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFAE5AF6262F211D00699832 /* UIColor-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
+		CFE048E326EC722600627FE2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E2C1358C8474826ECF2743AD /* Pods-LoginTestFirebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginTestFirebase.debug.xcconfig"; path = "Target Support Files/Pods-LoginTestFirebase/Pods-LoginTestFirebase.debug.xcconfig"; sourceTree = "<group>"; };
 		F1DE6220FA8165207B5534C8 /* Pods-LoginTestFirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginTestFirebase.release.xcconfig"; path = "Target Support Files/Pods-LoginTestFirebase/Pods-LoginTestFirebase.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,8 +72,9 @@
 		CF91FBE526E9D14600150D9F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CFAE5AE5262DAEAE00699832 /* ViewController.swift */,
+				CFAE5AE5262DAEAE00699832 /* RegisterViewController.swift */,
 				CF91FBED26E9E37500150D9F /* HomeViewController.swift */,
+				CFE048E326EC722600627FE2 /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -250,7 +253,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFAE5AE6262DAEAE00699832 /* ViewController.swift in Sources */,
+				CFE048E426EC722600627FE2 /* LoginViewController.swift in Sources */,
+				CFAE5AE6262DAEAE00699832 /* RegisterViewController.swift in Sources */,
 				CFAE5AF7262F211D00699832 /* UIColor-Extension.swift in Sources */,
 				CFAE5AE2262DAEAE00699832 /* AppDelegate.swift in Sources */,
 				CF91FBE926E9D19400150D9F /* User.swift in Sources */,

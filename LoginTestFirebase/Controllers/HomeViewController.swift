@@ -37,6 +37,34 @@ class HomeViewController: UIViewController {
 
     
     }
+    //viewがよばれる前によばれるメソッド
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //ログインさ情報がない場合は登録画面に移動する
+        conformLoginedUser()
+        
+    }
+    
+    private func presentToViewController() {
+        //RegisterViewControllerに移動する
+        let registerViewController = self.storyboard?.instantiateViewController(identifier: "RegisterViewController") as! RegisterViewController
+        registerViewController.modalPresentationStyle = .fullScreen
+        let navController = UINavigationController(rootViewController: registerViewController)
+        navController.modalPresentationStyle = .fullScreen
+        navController.navigationBar.isHidden = true
+        self.present(navController, animated: true, completion: nil)
+    
+    }
+    
+    private func conformLoginedUser() {
+    //uidとuserがない場合は
+        if Auth.auth().currentUser?.uid == nil || user == nil {
+            presentToViewController()
+        }
+    }
+    
+    
+    
     
     @IBAction func logoutButton(_ sender: Any) {
         
@@ -44,7 +72,7 @@ class HomeViewController: UIViewController {
             
             try Auth.auth().signOut()
         
-            dismiss(animated: true, completion: nil)
+            presentToViewController()
         
         } catch  {
             print(error,"ログアウトに失敗sました")

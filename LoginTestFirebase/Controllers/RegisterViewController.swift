@@ -8,7 +8,7 @@ import UIKit
 import Firebase
 import PKHUD
 
-class ViewController: UIViewController {
+class RegisterViewController: UIViewController {
     
     
     @IBOutlet private var emailTextField: UITextField!
@@ -24,11 +24,15 @@ class ViewController: UIViewController {
     }
     
     private func handleAuthToFirebase(){
+        HUD.show(.progress, onView: view)
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         Auth.auth().createUser(withEmail: email, password: password) { [ weak self ] (result, error) in
             if let error = error {
                 print("認証情報の保存に失敗しました。\(error)")
+                HUD.hide { _ in
+                    HUD.flash(.error, delay: 2)
+                }
                 return
             }
             self?.addUserInfoToFirestore(email: email)
@@ -42,22 +46,31 @@ class ViewController: UIViewController {
         usersRef.setData(documentData) { (error) in
             if let error = error {
                 print("認証情報の保存に失敗しました\(error)")
+                HUD.hide { _ in
+                    HUD.flash(.error, delay: 2)
+                }
                 return
             }
             print("認証情報の保存に成功しました。")
-            usersRef.getDocument { (snapshot, error) in
+            usersRef.getDocument { [weak self] (snapshot, error) in
                 if let error = error {
                     print("ユーザー情報の取得に失敗しました。\(error)")
+                    HUD.hide { _ in
+                        HUD.flash(.error, delay: 2)
+                    }
                     return
                 }
                 guard let date = snapshot?.data() else { return }
                 let user = User.init(dic: date)
                 print("ユーザー情報の取得に成功しました.\(user)")
-                let homeViewController = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+                HUD.hide { _ in
+                    HUD.flash(.success, delay: 2)
+                }
+                let homeViewController = self?.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
                 homeViewController.user = user
                 homeViewController.modalPresentationStyle = .fullScreen                
                 
-                self.present(homeViewController, animated: true, completion: nil)
+                self?.present(homeViewController, animated: true, completion: nil)
                 
                 
             }
@@ -106,8 +119,18 @@ class ViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    
+    @IBAction func tapToLoginPage(_ sender: UIButton) {
+
+        let loginViewController = self.storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+        navigationController?.pushViewController(loginViewController, animated: true)
+        
+    
+    }
+    
+    
 }
-extension ViewController: UITextFieldDelegate { //可読性の向上ｗ
+extension RegisterViewController: UITextFieldDelegate { //可読性の向上ｗ
     func textFieldDidChangeSelection(_ textField: UITextField) {
         let emailIsEmpty = emailTextField.text?.isEmpty ?? true
         let passwordIsEmpty = passwordTextField.text?.isEmpty ?? true
